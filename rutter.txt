@@ -1,0 +1,8 @@
+#
+#	Rutter
+#
+
+rails new devcamp_portfolio  -T --database=postgresql
+bin/rails db:create
+bin/rails db:migrate
+bin/rails g scaffold Blog title:string body:text 
