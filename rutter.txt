@@ -16,4 +16,7 @@ Updates the schema
 
 bin/rails c
 Skill.create!(title:"Rails", percent_utilized: 75)
-Skill.all 
+Skill.all
+
+
+bin/rails g resource Portfolio title:string subtitle:string body:text main_image:text thumb_image:text
