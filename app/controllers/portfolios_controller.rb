@@ -38,11 +38,13 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def show
+    @portfolio_item = Portfolio.find(params[:id])
+  end
 
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def portfolio_params
     params.require(:portfolio).permit(:title, :subtitle, :body)
   end
-
 end
