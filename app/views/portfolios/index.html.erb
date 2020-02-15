@@ -1,14 +1,26 @@
 <h1>Portfolio Items</h1>
+<!--
+<a href="portfolios/new" title="">Create New Item</a>
+<br><br>
+-->
+<%= link_to "Create New Item", new_portfolio_path %>
+<br><br>
 
+
+
+<br>
 <% @portfolio_items.each do |item| %>
+  <p>
+    <%= item.title%>
+  </p>
+  <p>
+    <%= item.subtitle%>
+  </p>
+  <p>
+    <%= item.body%>
+  </p>
 
-  <%= item.title%>
-  <br>
-  <%= item.subtitle%>
-  <br>
-  <%= item.body%>
-  <br>
   <%= image_tag item.thumb_image unless item.thumb_image.nil? %>
-  <br>
-  <br>
+
+  <%= link_to "Edit", edit_portfolio_path(item.id) %>
 <% end %>
