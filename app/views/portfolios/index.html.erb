@@ -11,7 +11,7 @@
 <br>
 <% @portfolio_items.each do |item| %>
   <p>
-    <%= link_to item.title, portfolio_path(item) %>
+    <%= link_to item.title, portfolio_show_path(item) %>
   </p>
   <p>
     <%= item.subtitle%>
