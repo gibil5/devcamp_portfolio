@@ -26,6 +26,4 @@ bin/rails g resource Portfolio title:string subtitle:string body:text main_image
 
 
 bin/rails g migration add_slug_to_blogs slug:string:uniq
-
-
 Blog.find_each(&:save)
