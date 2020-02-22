@@ -1,10 +1,14 @@
 #
-#	Rutter
+#	  Rutter
 #
+#   Last up:    22 Feb 2020
+
 
 rails new devcamp_portfolio  -T --database=postgresql
+
 bin/rails db:create
 bin/rails db:migrate
+
 bin/rails g scaffold Blog title:string body:text
 
 bin/rails g controller Pages home about contact
@@ -14,9 +18,14 @@ bin/rails g model Skill title:string percent_utilized:integer
 bin/rails db:migrate
 Updates the schema
 
+
 bin/rails c
 Skill.create!(title:"Rails", percent_utilized: 75)
 Skill.all
 
 
 bin/rails g resource Portfolio title:string subtitle:string body:text main_image:text thumb_image:text
+
+
+bin/rails g migration add_slug_to_blogs slug:string:uniq
+Blog.find_each(&:save)
