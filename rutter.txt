@@ -1,6 +1,8 @@
 #
-#	Rutter
+#	  Rutter
 #
+#   Last up:    22 Feb 2020
+
 
 rails new devcamp_portfolio  -T --database=postgresql
 
