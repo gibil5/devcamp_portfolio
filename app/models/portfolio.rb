@@ -15,12 +15,14 @@ class Portfolio < ApplicationRecord
   #after_create :set_defaults    # not the right spot to set defaults
 
   def set_defaults
-    self.main_image ||= "https://via.placeholder.com/600x200"
-    self.thumb_image ||= "https://via.placeholder.com/350x200"
+    #self.main_image ||= "https://via.placeholder.com/600x200"
+    #self.thumb_image ||= "https://via.placeholder.com/350x200"
+    self.main_image ||= Placeholder.image_generator(height: 200, width: 600)
+    self.thumb_image ||= Placeholder.image_generator(height: 200, width: 350)
   end
 
   # Double pipes - Shortcut for
-  if self.main_image == nil
-    self.main_image = "https://via.placeholder.com/600x200"
-  end
+  #if self.main_image == nil
+  #  self.main_image = "https://via.placeholder.com/600x200"
+  #end
 end
