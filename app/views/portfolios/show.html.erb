@@ -1,4 +1,4 @@
-<h1>Show Portfolio</h1>
+<h1>Show Portfolio x</h1>
 
 <%= image_tag @portfolio_item.main_image %>
 
@@ -11,3 +11,8 @@
 </em>
 
 <%= @portfolio_item.body %>
+
+<h2>Technologies used:</h2>
+<%= @portfolio_item.technologies.each do |t| %>
+  <p><%= t.name %></p>
+<% end %>
