@@ -2,24 +2,11 @@ class PortfoliosController < ApplicationController
 
   def index
     @portfolio_items = Portfolio.all
-    #@portfolio_items = Portfolio.where(subtitle: "Ruby on Rails")
-    #@portfolio_items = Portfolio.where(subtitle: "Angular")
-    #@portfolio_items = Portfolio.ruby_on_rails_items
-  end
-
-  def angular
-    @portfolio_items = Portfolio.angular
-    render 'index'
-  end
-
-  def ror
-    @portfolio_items = Portfolio.angular
-    @portfolio_items = Portfolio.ruby_on_rails_items
-    render 'index'
   end
 
   def new
     @portfolio_item = Portfolio.new
+    3.times {@portfolio_item.technologies.build}
   end
 
   def create
@@ -34,11 +21,9 @@ class PortfoliosController < ApplicationController
     end
   end
 
-
   def edit
     @portfolio_item = Portfolio.find(params[:id])
   end
-
 
   def update
     @portfolio_item = Portfolio.find(params[:id])
@@ -56,7 +41,6 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id])
   end
 
-
   def destroy
     @portfolio_item = Portfolio.find(params[:id])
 
@@ -66,9 +50,20 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def angular
+    @portfolio_items = Portfolio.angular
+    render 'index'
+  end
 
+  def ror
+    @portfolio_items = Portfolio.angular
+    @portfolio_items = Portfolio.ruby_on_rails_items
+    render 'index'
+  end
+
+  # This is just a whitelist
   # Never trust parameters from the scary internet, only allow the white list through.
   def portfolio_params
-    params.require(:portfolio).permit(:title, :subtitle, :body)
+    params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name])
   end
 end
