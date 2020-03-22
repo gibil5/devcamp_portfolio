@@ -6,11 +6,14 @@ class BlogsController < ApplicationController
   def index
     #@blogs = Blog.limit(1)
     @blogs = Blog.all
+    @page_title = "DevcampPortfolio-Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @page_title = @blog.title 
+    @seo_keywords = @blog.body 
   end
 
   # GET /blogs/new
