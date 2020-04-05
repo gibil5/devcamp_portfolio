@@ -12,7 +12,6 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio_item = Portfolio.new(portfolio_params)
-
     respond_to do |format|
       if @portfolio_item.save
         format.html { redirect_to portfolios_path, notice: 'portfolio was successfully created.' }
@@ -29,7 +28,6 @@ class PortfoliosController < ApplicationController
 
   def update
     @portfolio_item = Portfolio.find(params[:id])
-
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'Portfolio was updated.' }
@@ -45,7 +43,6 @@ class PortfoliosController < ApplicationController
 
   def destroy
     @portfolio_item = Portfolio.find(params[:id])
-
     @portfolio_item.destroy
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Portfolio was destroyed.' }
